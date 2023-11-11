@@ -1,59 +1,105 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: #f0f0f0; 
-    color: #333; 
-  }
-  
-  .navbar {
-    background-color: #857e7e; 
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .logo {
-    margin: 0;
-    color: #fff; 
-  }
-  
-  .nav-link {
-    color: #fff; 
-    text-decoration: none;
-    margin: 0 10px;
-  }
-  
-  .container {
-    text-align: center;
-    padding: 50px;
-  }
-  
-  .welcome-text {
-    margin-bottom: 20px;
-    color: #6d6d6d; 
-  }
-  
-  .start-button {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #d2b48c; 
-    color: #fff; 
-    border: none;
-    cursor: pointer;
-    border-radius: 10px; 
-  }
-  
-  .footer {
-    background-color: #857e7e; 
-    color: #fff; 
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-  
-  .score, .time-left {
-    margin: 5px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: #f0f0f0; 
+  color: #333; 
+}
+
+.navbar {
+  background-color: #857e7e; 
+  padding: 10px;
+  text-align: center;
+}
+
+.logo {
+  margin: 0;
+  color: #fff; 
+}
+
+.nav-link {
+  color: #fff; 
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.container {
+  text-align: center;
+  padding: 50px;
+}
+
+.welcome-text {
+  margin-bottom: 20px;
+  color: #6d6d6d; 
+}
+
+.start-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #d2b48c; 
+  color: #fff; 
+  border: none;
+  cursor: pointer;
+  border-radius: 10px; 
+}
+
+.footer {
+  background-color: #857e7e; 
+  color: #fff; 
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.score, .time-left {
+  margin: 5px;
+}
+
+.answer-button {
+  margin-top: 10px; 
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #d2b48c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  display: block;
+}
+
+#question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#initialsForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.initials-input {
+  padding: 8px;
+  font-size: 16px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #d2b48c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.final-score {
+  margin-top: 20px;
+  font-size: 18px;
+}

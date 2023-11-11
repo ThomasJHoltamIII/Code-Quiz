@@ -1,49 +1,66 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: #333; 
-    color: #fff; 
-  }
-  
-  .navbar {
-    background-color: #d2b48c; 
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .logo {
-    margin: 0;
-    color: #333; 
-  }
-  
-  .nav-link {
-    color: #333; 
-    text-decoration: none;
-    margin: 0 10px;
-  }
-  
-  .container {
-    text-align: center;
-    padding: 50px;
-  }
-  
-  .welcome-text {
-    margin-bottom: 20px;
-    color: #d2b48c; 
-  }
-  
-  .footer {
-    background-color: #d2b48c; 
-    color: #fff; 
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-  
-  .thanks {
-    margin: 5px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: #333; 
+  color: #fff; 
+}
+
+.navbar {
+  background-color: #d2b48c; 
+  padding: 10px;
+  text-align: center;
+}
+
+.logo {
+  margin: 0;
+  color: #333; 
+}
+
+.nav-link {
+  color: #333; 
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.container {
+  text-align: center;
+  padding: 50px;
+}
+
+.welcome-text {
+  margin-bottom: 20px;
+  color: #d2b48c; 
+  text-decoration: underline;
+}
+
+.footer {
+  background-color: #d2b48c; 
+  color: #fff; 
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.thanks {
+  margin: 5px;
+}
+
+/* Style for the high scores list */
+#highScoresList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#highScoresList li {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+#highScoresList li::before {
+  content: none; 
+}

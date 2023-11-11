@@ -1,6 +1,5 @@
-
-  // Question array
-var quizQuestions = [
+// Question array
+  var quizQuestions = [
     "What is the correct way to declare a variable in JavaScript?",
     "Which of the following methods is used to add an element to an array in JavaScript?",
     "How do you write a comment in JavaScript?",
@@ -77,10 +76,8 @@ function showQuestion() {
     let currentQuestion = quizQuestions[currentQuestions];
     let currentChoices = wrongAnswers[currentQuestions].concat(rightAnswers[currentQuestions]);
 
-// Shuffle the choices to display in random order
     currentChoices = shuffleArray(currentChoices);
 
-// Update page for questions
     const questionContainer = document.getElementById("question-container");
     questionContainer.innerHTML = '';
 
@@ -89,10 +86,11 @@ function showQuestion() {
     questionContainer.appendChild(questionElement);
 
     currentChoices.forEach(choice => {
-        const button = document.createElement("button");
-        button.textContent = choice;
-        button.addEventListener("click", () => checkAnswer(choice));
-        questionContainer.appendChild(button);
+    const answerButton = document.createElement("button");
+    answerButton.textContent = choice;
+    answerButton.classList.add("answer-button"); // Add a class for styling
+    answerButton.addEventListener("click", () => checkAnswer(choice));
+    questionContainer.appendChild(answerButton);
     });
 }
 
@@ -151,17 +149,24 @@ function endQuiz() {
     const initialsForm = `
         <form id="initialsForm">
             <label for="initials">Enter Initials:</label>
-            <input type="text" id="initials" name="initials">
-            <button type="submit">Submit</button>
+            <input type="text" id="initials" name="initials" class="initials-input">
+            <button type="submit" class="submit-button">Submit</button>
         </form>
-        <p>Final Score: ${score}</p>
+        <p class="final-score">Final Score: ${score}</p>
     `;
     document.getElementById("question-container").innerHTML = initialsForm;
 
     document.getElementById("initialsForm").addEventListener("submit", function (event) {
         event.preventDefault();
-        const initials = document.getElementById("initials").value;
-        saveScoreToLocalStorage(score, initials);
+        const initialsInput = document.getElementById("initials");
+        const initials = initialsInput.value.trim(); 
+
+        if (initials !== "") {
+            saveScoreToLocalStorage(score, initials);
+            location.reload(); 
+        } else {
+            alert("Please enter your initials."); 
+        }
     });
     document.getElementById("initialsForm").style.display = 'block';
     document.getElementById("score").innerText = `${score} `;
