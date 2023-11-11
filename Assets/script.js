@@ -28,13 +28,14 @@ let timerInterval;
 let currentQuestions = 0;
 let score = 0;
 
+
 // Timer functions
 function updateTimer() {
     document.getElementById("timer").innerText = `${timeLeft} `;
 }
-
-function startTimer() {
-    timerInterval = setInterval(function () {
+    
+    function startTimer() {
+        timerInterval = setInterval(function () {
         timeLeft--;
         updateTimer();
 
@@ -101,6 +102,7 @@ function checkAnswer(selectedAnswer) {
     }
 
     currentQuestions++;
+    document.getElementById("score").innerText = `${score} `;
 
     if (currentQuestions < quizQuestions.length) {
         showQuestion();
@@ -109,10 +111,32 @@ function checkAnswer(selectedAnswer) {
     }
 }
 
+// Function to end the quiz and log initials
 function endQuiz() {
-    clearInterval(timerInterval)
-    console.log(score); }
-
+    clearInterval(timerInterval);
+    // Display the "Enter Initials" form or any concluding elements
+    const initialsForm = `
+        <form id="initialsForm">
+            <label for="initials">Enter Initials:</label>
+            <input type="text" id="initials" name="initials">
+            <button type="submit">Submit</button>
+        </form>
+    `;
+    document.getElementById("question-container").innerHTML = initialsForm;
+    document.getElementById("initialsForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevents the form from submitting and refreshing the page
+        const initials = document.getElementById("initials").value;
+        saveScoreToLocalStorage(score, initials);
+    });
+    document.getElementById("initialsForm").style.display = 'block';
+    console.log("User Score:", score);
+}
+function saveScoreToLocalStorage(score, initials) {
+    const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    highScores.push({ score, initials });
+    highScores.sort((a, b) => b.score - a.score);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+}
 
 // Bind wrong answers to a vairable that - from timer
 
