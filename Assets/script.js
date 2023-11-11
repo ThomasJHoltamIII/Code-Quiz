@@ -1,3 +1,7 @@
+// Message for Maria
+// Thankyou for your warning message about this project, I spent all week prepping recources and bookmarking helpful information and came into this very prepared, it helped a ton!
+
+
 // Question array
   var quizQuestions = [
     "What is the correct way to declare a variable in JavaScript?",
@@ -22,7 +26,7 @@ var wrongAnswers = [
     ["Assigns a value to a variable.", "Checks if a variable is defined.", "Performs a logical OR operation."]
 ];
 
-// Value set for my tracked variables
+// Value set for tracked variables
 let timeLeft = 40;
 let timerInterval;
 let currentQuestions = 0;
@@ -52,7 +56,7 @@ function startQuiz() {
     startTimer();
 }
 
-// startQuiz event listener
+// StartQuiz event listener
 document.getElementById("start").addEventListener("click", startQuiz);
 
 
