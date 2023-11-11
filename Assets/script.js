@@ -1,8 +1,46 @@
-// Make variable for right answers
 
-// Make variable for wrong answers
 
-// Make a timer
+// Array of right answers
+var rightAnswers = [
+    "let x;",        // Correct answer for Question 1
+    "To convert a string to an integer.", // Correct answer for Question 2
+    "// This is a comment", // Correct answer for Question 3
+    "Compares two values for equality without type coercion." // Correct answer for Question 4
+  ];
+  
+// Wrong answer array
+var wrongAnswers = [
+    ["var x;", "variable x;", "x = variable;"], // Wrong answers for Question 1
+    ["To print text to the console.", "To create a new array.", "To define a new function."], // Wrong answers for Question 2
+    ["<!-- This is a comment -->", "/* This is a comment */", "* This is a comment *"], // Wrong answers for Question 3
+    ["Assigns a value to a variable.", "Checks if a variable is defined.", "Performs a logical OR operation."] // Wrong answers for Question 4
+  ];
+
+//Timer, binds to start button 
+let timeLeft = 40;
+let timerInterval;
+
+document.getElementById("start").addEventListener("click", function() {
+  if (timerInterval) {
+    clearInterval(timerInterval);
+  }
+
+  timeLeft = 40;
+  updateTimer();
+
+  timerInterval = setInterval(function() {
+    timeLeft--;
+    updateTimer();
+
+    if (timeLeft === 0) {
+      clearInterval(timerInterval);
+      alert("Time's up!");
+    }
+  }, 1000);
+});
+
+function updateTimer() {
+  document.getElementById("timer").innerText = `${timeLeft}`;}
 
 // Bind wrong answers to a vairable that - from timer
 
