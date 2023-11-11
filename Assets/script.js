@@ -76,10 +76,10 @@ function showQuestion() {
     let currentQuestion = quizQuestions[currentQuestions];
     let currentChoices = wrongAnswers[currentQuestions].concat(rightAnswers[currentQuestions]);
 
-    // Shuffle the choices to display in random order
+// Shuffle the choices to display in random order
     currentChoices = shuffleArray(currentChoices);
 
-    // Update page for questions
+// Update page for questions
     const questionContainer = document.getElementById("question-container");
     questionContainer.innerHTML = '';
 
@@ -117,11 +117,35 @@ function checkAnswer(selectedAnswer) {
     }
 }
 
+// Fix to stop timer and score from going into the negatives
+function updateTimer() {
+    let displayTime;
+
+    if (timeLeft >= 0) {
+        displayTime = timeLeft;
+    } else {
+        displayTime = 0;
+    }
+
+    document.getElementById("timer").innerText = `${displayTime} `;
+}
+
+function updateScore() {
+    if (score === -1) {
+        score = 0;
+        document.getElementById("score").innerText = `${score}`;
+    } else if (score >= 0) {
+        document.getElementById("score").innerText = `${score}`;
+    }
+}
+
 // Function to end the quiz and log initials
 function endQuiz() {
+    updateScore();
+    updateTimer();
     clearInterval(timerInterval);
 
-    score += timeLeft;
+    score = Math.max(0, score + timeLeft);
 
     const initialsForm = `
         <form id="initialsForm">
@@ -141,9 +165,15 @@ function endQuiz() {
     document.getElementById("initialsForm").style.display = 'block';
     document.getElementById("score").innerText = `${score} `;
     console.log("User Score:", score);
+
+    function saveScoreToLocalStorage(score, initials) {
+        const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+        highScores.push({ score, initials });
+        highScores.sort((a, b) => b.score - a.score);
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+    }
 }
 
-// Bind wrong answers to a vairable that - from timer
 
 // Make vairable that displays when on the "High Score" page 
 
