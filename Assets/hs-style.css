@@ -2,23 +2,23 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: #f0f0f0; 
-    color: #333; 
+    background: #333; 
+    color: #fff; 
   }
   
   .navbar {
-    background-color: #857e7e; 
+    background-color: #d2b48c; 
     padding: 10px;
     text-align: center;
   }
   
   .logo {
     margin: 0;
-    color: #fff; 
+    color: #333; 
   }
   
   .nav-link {
-    color: #fff; 
+    color: #333; 
     text-decoration: none;
     margin: 0 10px;
   }
@@ -30,21 +30,11 @@ body {
   
   .welcome-text {
     margin-bottom: 20px;
-    color: #6d6d6d; 
-  }
-  
-  .start-button {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #d2b48c; 
-    color: #fff; 
-    border: none;
-    cursor: pointer;
-    border-radius: 10px; 
+    color: #d2b48c; 
   }
   
   .footer {
-    background-color: #857e7e; 
+    background-color: #d2b48c; 
     color: #fff; 
     text-align: center;
     padding: 10px;
@@ -53,7 +43,7 @@ body {
     width: 100%;
   }
   
-  .score, .time-left {
+  .thanks {
     margin: 5px;
   }
   
