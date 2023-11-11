@@ -79,7 +79,7 @@ function showQuestion() {
     // Shuffle the choices to display in random order
     currentChoices = shuffleArray(currentChoices);
 
-    // Display question and choices in your HTML
+    // Update page for questions
     const questionContainer = document.getElementById("question-container");
     questionContainer.innerHTML = '';
 
@@ -99,6 +99,12 @@ function showQuestion() {
 function checkAnswer(selectedAnswer) {
     if (selectedAnswer === rightAnswers[currentQuestions]) {
         score++;
+    } else {
+        timeLeft -= 15;
+        if (timeLeft < 0) {
+            timeLeft = 0;
+        }
+        updateTimer();
     }
 
     currentQuestions++;
@@ -114,28 +120,27 @@ function checkAnswer(selectedAnswer) {
 // Function to end the quiz and log initials
 function endQuiz() {
     clearInterval(timerInterval);
-    // Display the "Enter Initials" form or any concluding elements
+
+    score += timeLeft;
+
     const initialsForm = `
         <form id="initialsForm">
             <label for="initials">Enter Initials:</label>
             <input type="text" id="initials" name="initials">
             <button type="submit">Submit</button>
         </form>
+        <p>Final Score: ${score}</p>
     `;
     document.getElementById("question-container").innerHTML = initialsForm;
+
     document.getElementById("initialsForm").addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevents the form from submitting and refreshing the page
+        event.preventDefault();
         const initials = document.getElementById("initials").value;
         saveScoreToLocalStorage(score, initials);
     });
     document.getElementById("initialsForm").style.display = 'block';
+    document.getElementById("score").innerText = `${score} `;
     console.log("User Score:", score);
-}
-function saveScoreToLocalStorage(score, initials) {
-    const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-    highScores.push({ score, initials });
-    highScores.sort((a, b) => b.score - a.score);
-    localStorage.setItem("highScores", JSON.stringify(highScores));
 }
 
 // Bind wrong answers to a vairable that - from timer
