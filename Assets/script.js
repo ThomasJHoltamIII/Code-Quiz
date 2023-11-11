@@ -1,4 +1,5 @@
-// Question array
+
+  // Question array
 var quizQuestions = [
     "What is the correct way to declare a variable in JavaScript?",
     "Which of the following methods is used to add an element to an array in JavaScript?",
@@ -173,7 +174,4 @@ function endQuiz() {
         localStorage.setItem("highScores", JSON.stringify(highScores));
     }
 }
-
-
-// Make vairable that displays when on the "High Score" page 
 
