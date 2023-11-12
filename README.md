@@ -38,7 +38,6 @@ JavaScript
 
 https://thomasjholtamiii.github.io/Code-Quiz/
 
-{Plug in URL Future Thomas}
 
 ## Installation
 No installation is required. Simply open the provided HTML file in a web browser.
